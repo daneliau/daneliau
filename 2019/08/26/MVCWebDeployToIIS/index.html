@@ -79,17 +79,25 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="description" content="ASP.NET MVC 5 WebDeploy 設定記錄　　前言最近開始利用 .NET MVC 5開發專案(遲遲到現在才開始進入MVC的世界)，進度也到了部署的階段，經由GOOGLE大神牽引，看到了Web Deploy，在Visual Studio上很方便的部署機制，眼睛為之一亮，就是這個了，原來這個部署方式已經歷行很久了，我這井底之蛙，以前的部署還一直在單純的使用copy &amp;amp; paste">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://daneliau.github.io/2019/08/21/hello-world/index.html">
+<meta property="og:title" content="ASP.NET MVC 5 WebDeploy 設定記錄">
+<meta property="og:url" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/index.html">
 <meta property="og:site_name" content="廖爸&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="ASP.NET MVC 5 WebDeploy 設定記錄　　前言最近開始利用 .NET MVC 5開發專案(遲遲到現在才開始進入MVC的世界)，進度也到了部署的階段，經由GOOGLE大神牽引，看到了Web Deploy，在Visual Studio上很方便的部署機制，眼睛為之一亮，就是這個了，原來這個部署方式已經歷行很久了，我這井底之蛙，以前的部署還一直在單純的使用copy &amp;amp; paste">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-08-26T04:52:45.258Z">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step12serveraccount.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step3IISServerWebPlatformInstaller.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step4InstallApplications.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step5IISmanagerPrivellege_1.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step5IISmanagerPrivellege_2.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step6Deploysetting_1.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step6Deploysetting_2.png">
+<meta property="og:updated_time" content="2019-08-26T05:22:19.868Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="ASP.NET MVC 5 WebDeploy 設定記錄">
+<meta name="twitter:description" content="ASP.NET MVC 5 WebDeploy 設定記錄　　前言最近開始利用 .NET MVC 5開發專案(遲遲到現在才開始進入MVC的世界)，進度也到了部署的階段，經由GOOGLE大神牽引，看到了Web Deploy，在Visual Studio上很方便的部署機制，眼睛為之一亮，就是這個了，原來這個部署方式已經歷行很久了，我這井底之蛙，以前的部署還一直在單純的使用copy &amp;amp; paste">
+<meta name="twitter:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step12serveraccount.png">
 
 
 
@@ -119,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://daneliau.github.io/2019/08/21/hello-world/">
+  <link rel="canonical" href="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/">
 
 
 
 
 
-  <title>Hello World | 廖爸's Blog</title>
+  <title>ASP.NET MVC 5 WebDeploy 設定記錄 | 廖爸's Blog</title>
   
 
 
@@ -232,7 +240,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://daneliau.github.io/2019/08/21/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Daniel">
@@ -249,7 +257,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">ASP.NET MVC 5 WebDeploy 設定記錄</h1>
         
 
         <div class="post-meta">
@@ -261,8 +269,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-21T17:46:06+08:00">
-                2019-08-21
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-26T12:27:45+08:00">
+                2019-08-26
               </time>
             
 
@@ -299,21 +307,26 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <h2 id="ASP-NET-MVC-5-WebDeploy-設定記錄"><a href="#ASP-NET-MVC-5-WebDeploy-設定記錄" class="headerlink" title="ASP.NET MVC 5 WebDeploy 設定記錄　　"></a>ASP.NET MVC 5 WebDeploy 設定記錄　　</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近開始利用 .NET MVC 5開發專案(<del>遲遲到現在才開始進入MVC的世界</del>)，<br>進度也到了部署的階段，經由GOOGLE大神牽引，看到了Web Deploy，在Visual Studio上<br>很方便的部署機制，眼睛為之一亮，就是這個了，原來這個部署方式已經歷行很久了，<br>我這井底之蛙，以前的部署還一直在單純的使用copy &amp; paste(汗顏啊)，<br>也藉這個主題來練習markdown，把設定的過程記錄起來，供日後參考  </p>
 <a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+<h3 id="部署設定"><a href="#部署設定" class="headerlink" title="部署設定"></a>部署設定</h3><p>需要動到的地方，分成了兩個部份  </p>
+<ul>
+<li>部署IIS Server端</li>
+<li>Visual Studio 開發端  </li>
+</ul>
+<h4 id="IIS-Server-設定"><a href="#IIS-Server-設定" class="headerlink" title="* IIS Server 設定"></a>* IIS Server 設定</h4><p>Step1. 安裝 <a href="https://www.microsoft.com/web/downloads/platform.aspx" target="_blank" rel="noopener">WebPlatformInstaller</a> (選擇os 對應的位元版本 x64 or 32位元)  </p>
+<p>Step2. 新增Server端本機部署用的帳號(避免直接使用),並將該user加入 <code>Administators</code> 群組<br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step12serveraccount.png" alt="本機部署用的帳號"></p>
+<p>Step3. 開啟<code>IIS管理員</code>(建立站台)，在這裡僅以<code>Default Web Site</code>站台為例，滑鼠右鍵，<br>點擊<code>從組件庫安裝應用程式</code><br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step3IISServerWebPlatformInstaller.png" alt="WebPlatformInstaller">  </p>
+<p>Step4. 點選<code>產品</code>tag，並於右方搜尋欄內查詢<code>web deploy</code>，安裝三項應用程式，安裝完後，<br><code>關閉</code>IIS管理員程式，並<code>重新開啟</code>IIS管理員  </p>
+<ul>
+<li><code>Web Deploy 3.6</code></li>
+<li><code>Web Deploy 3.6 without bundled SQL support(latest)</code></li>
+<li><code>Web Deploy 3.6 for Hosting Servers</code><br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step4InstallApplications.png" alt="Install Application"></li>
+</ul>
+<p>Step5. 點選左側<code>Default Web Site站台</code>後，右方會出現<code>IIS管理員權限</code>圖示，點擊後，將剛剛建立部署用的system user加入到清單內<br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step5IISmanagerPrivellege_1.png" alt="點選iis管理員權限"><br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step5IISmanagerPrivellege_2.png" alt="新增system user">  </p>
+<p>Step6. 點選左側<code>Default Web Site站台</code>，滑鼠右鍵，會看見清單多了<code>部署</code>項目，展開後<br>點選<code>啟用Web Deploy發行</code>，並指定好部署用的帳號及sql連結資訊後，按下<code>設定</code>鍵，<br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step6Deploysetting_1.png" alt="啟用web deploy發行"><br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step6Deploysetting_2.png" alt="指定帳號sql設定">  </p>
+<p>至此 IIS Server端的Web Deploy安裝及設定，告一段落了，接下來回到 Visual Studio 開發端的部署設定</p>
+<h4 id="Visual-Studio-開發端-設定"><a href="#Visual-Studio-開發端-設定" class="headerlink" title="* Visual Studio 開發端 設定"></a>* Visual Studio 開發端 設定</h4>
       
     </div>
     
@@ -337,15 +350,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/08/26/Markdown-learning/" rel="next" title="MarkDown 語法學習">
+                <i class="fa fa-chevron-left"></i> MarkDown 語法學習
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/26/Markdown-learning/" rel="prev" title="MarkDown 語法學習">
-                MarkDown 語法學習 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -459,7 +472,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ASP-NET-MVC-5-WebDeploy-設定記錄"><span class="nav-number">1.</span> <span class="nav-text">ASP.NET MVC 5 WebDeploy 設定記錄　　</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署設定"><span class="nav-number">1.2.</span> <span class="nav-text">部署設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IIS-Server-設定"><span class="nav-number">1.2.1.</span> <span class="nav-text">* IIS Server 設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Visual-Studio-開發端-設定"><span class="nav-number">1.2.2.</span> <span class="nav-text">* Visual Studio 開發端 設定</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
