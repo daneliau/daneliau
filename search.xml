@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[ASP.NET MVC 5 WebDeploy 設定記錄]]></title>
+    <url>%2F2019%2F08%2F26%2FMVCWebDeployToIIS%2F</url>
+    <content type="text"><![CDATA[ASP.NET MVC 5 WebDeploy 設定記錄 前言最近開始利用 .NET MVC 5開發專案(遲遲到現在才開始進入MVC的世界)，進度也到了部署的階段，經由GOOGLE大神牽引，看到了Web Deploy，在Visual Studio上很方便的部署機制，眼睛為之一亮，就是這個了，原來這個部署方式已經歷行很久了，我這井底之蛙，以前的部署還一直在單純的使用copy &amp; paste(汗顏啊)，也藉這個主題來練習markdown，把設定的過程記錄起來，供日後參考 部署設定需要動到的地方，分成了兩個部份 部署IIS Server端 Visual Studio 開發端 * IIS Server 設定Step1. 安裝 WebPlatformInstaller (選擇os 對應的位元版本 x64 or 32位元) Step2. 新增Server端本機部署用的帳號(避免直接使用),並將該user加入 Administators 群組 Step3. 開啟IIS管理員(建立站台)，在這裡僅以Default Web Site站台為例，滑鼠右鍵，點擊從組件庫安裝應用程式 Step4. 點選產品tag，並於右方搜尋欄內查詢web deploy，安裝三項應用程式，安裝完後，關閉IIS管理員程式，並重新開啟IIS管理員 Web Deploy 3.6 Web Deploy 3.6 without bundled SQL support(latest) Web Deploy 3.6 for Hosting Servers Step5. 點選左側Default Web Site站台後，右方會出現IIS管理員權限圖示，點擊後，將剛剛建立部署用的system user加入到清單內 Step6. 點選左側Default Web Site站台，滑鼠右鍵，會看見清單多了部署項目，展開後點選啟用Web Deploy發行，並指定好部署用的帳號及sql連結資訊後，按下設定鍵， 至此 IIS Server端的Web Deploy安裝及設定，告一段落了，接下來回到 Visual Studio 開發端的部署設定 * Visual Studio 開發端 設定setp1. 開啟Visual Studio專案後，點選建置(B)功能列，展開後，點選發行 xxxxxxx(xxxxxx為專案名) step2. 點選IIS、FTP 等，並點擊建立設定檔按扭 step3. 填寫部署的資訊後，點擊驗證連線，確認是否可以正常連線成功，正常即可按下儲存按扭 設定完成後，後續即可依這個設定檔進行一鍵部署的動作了，以上是這次設定部署的記錄。]]></content>
+      <categories>
+        <category>主機服務建置及設定</category>
+      </categories>
+      <tags>
+        <tag>MVC</tag>
+        <tag>Web Deploy</tag>
+        <tag>IIS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MarkDown 語法學習]]></title>
+    <url>%2F2019%2F08%2F26%2FMarkdown-learning%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F08%2F21%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>

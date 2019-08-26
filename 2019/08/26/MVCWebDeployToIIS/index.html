@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="MVC,Web Deploy,IIS,">
 
 
 
@@ -80,6 +80,7 @@
 
 
 <meta name="description" content="ASP.NET MVC 5 WebDeploy 設定記錄　　前言最近開始利用 .NET MVC 5開發專案(遲遲到現在才開始進入MVC的世界)，進度也到了部署的階段，經由GOOGLE大神牽引，看到了Web Deploy，在Visual Studio上很方便的部署機制，眼睛為之一亮，就是這個了，原來這個部署方式已經歷行很久了，我這井底之蛙，以前的部署還一直在單純的使用copy &amp;amp; paste">
+<meta name="keywords" content="MVC,Web Deploy,IIS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ASP.NET MVC 5 WebDeploy 設定記錄">
 <meta property="og:url" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/index.html">
@@ -93,7 +94,10 @@
 <meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step5IISmanagerPrivellege_2.png">
 <meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step6Deploysetting_1.png">
 <meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step6Deploysetting_2.png">
-<meta property="og:updated_time" content="2019-08-26T05:22:19.868Z">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step21deploysetting.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step22deploysetting.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step23deploysetting.png">
+<meta property="og:updated_time" content="2019-08-26T07:37:55.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ASP.NET MVC 5 WebDeploy 設定記錄">
 <meta name="twitter:description" content="ASP.NET MVC 5 WebDeploy 設定記錄　　前言最近開始利用 .NET MVC 5開發專案(遲遲到現在才開始進入MVC的世界)，進度也到了部署的階段，經由GOOGLE大神牽引，看到了Web Deploy，在Visual Studio上很方便的部署機制，眼睛為之一亮，就是這個了，原來這個部署方式已經歷行很久了，我這井底之蛙，以前的部署還一直在單純的使用copy &amp;amp; paste">
@@ -198,6 +202,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分類
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -209,9 +233,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            檢索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -280,6 +336,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/主機服務建置及設定/" itemprop="url" rel="index">
+                    <span itemprop="name">主機服務建置及設定</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -288,6 +366,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>閱讀數
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
           
 
           
@@ -315,18 +398,40 @@
 <li>Visual Studio 開發端  </li>
 </ul>
 <h4 id="IIS-Server-設定"><a href="#IIS-Server-設定" class="headerlink" title="* IIS Server 設定"></a>* IIS Server 設定</h4><p>Step1. 安裝 <a href="https://www.microsoft.com/web/downloads/platform.aspx" target="_blank" rel="noopener">WebPlatformInstaller</a> (選擇os 對應的位元版本 x64 or 32位元)  </p>
-<p>Step2. 新增Server端本機部署用的帳號(避免直接使用),並將該user加入 <code>Administators</code> 群組<br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step12serveraccount.png" alt="本機部署用的帳號"></p>
-<p>Step3. 開啟<code>IIS管理員</code>(建立站台)，在這裡僅以<code>Default Web Site</code>站台為例，滑鼠右鍵，<br>點擊<code>從組件庫安裝應用程式</code><br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step3IISServerWebPlatformInstaller.png" alt="WebPlatformInstaller">  </p>
+<p>Step2. 新增Server端本機部署用的帳號(避免直接使用),並將該user加入 <code>Administators</code> 群組  </p>
+<img src="/2019/08/26/MVCWebDeployToIIS/step12serveraccount.png" title="[本機部署用的帳號]">  
+
+<p>Step3. 開啟<code>IIS管理員</code>(建立站台)，在這裡僅以<code>Default Web Site</code>站台為例，滑鼠右鍵，<br>點擊<code>從組件庫安裝應用程式</code>   </p>
+<img src="/2019/08/26/MVCWebDeployToIIS/step3IISServerWebPlatformInstaller.png" title="[WebPlatformInstaller]">  
+
 <p>Step4. 點選<code>產品</code>tag，並於右方搜尋欄內查詢<code>web deploy</code>，安裝三項應用程式，安裝完後，<br><code>關閉</code>IIS管理員程式，並<code>重新開啟</code>IIS管理員  </p>
 <ul>
 <li><code>Web Deploy 3.6</code></li>
 <li><code>Web Deploy 3.6 without bundled SQL support(latest)</code></li>
-<li><code>Web Deploy 3.6 for Hosting Servers</code><br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step4InstallApplications.png" alt="Install Application"></li>
+<li><code>Web Deploy 3.6 for Hosting Servers</code>  <img src="/2019/08/26/MVCWebDeployToIIS/step4InstallApplications.png" title="[Install_Application]">  
+
+</li>
 </ul>
-<p>Step5. 點選左側<code>Default Web Site站台</code>後，右方會出現<code>IIS管理員權限</code>圖示，點擊後，將剛剛建立部署用的system user加入到清單內<br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step5IISmanagerPrivellege_1.png" alt="點選iis管理員權限"><br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step5IISmanagerPrivellege_2.png" alt="新增system user">  </p>
-<p>Step6. 點選左側<code>Default Web Site站台</code>，滑鼠右鍵，會看見清單多了<code>部署</code>項目，展開後<br>點選<code>啟用Web Deploy發行</code>，並指定好部署用的帳號及sql連結資訊後，按下<code>設定</code>鍵，<br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step6Deploysetting_1.png" alt="啟用web deploy發行"><br><img src="//daneliau.github.io/2019/08/26/MVCWebDeployToIIS/step6Deploysetting_2.png" alt="指定帳號sql設定">  </p>
+<p>Step5. 點選左側<code>Default Web Site站台</code>後，右方會出現<code>IIS管理員權限</code>圖示，點擊後，將剛剛建立部署用的system user加入到清單內  </p>
+<img src="/2019/08/26/MVCWebDeployToIIS/step5IISmanagerPrivellege_1.png" title="[點選iis管理員權限]">  
+<img src="/2019/08/26/MVCWebDeployToIIS/step5IISmanagerPrivellege_2.png" title="[新增system_user]">      
+
+<p>Step6. 點選左側<code>Default Web Site站台</code>，滑鼠右鍵，會看見清單多了<code>部署</code>項目，展開後<br>點選<code>啟用Web Deploy發行</code>，並指定好部署用的帳號及sql連結資訊後，按下<code>設定</code>鍵，  </p>
+<img src="/2019/08/26/MVCWebDeployToIIS/step6Deploysetting_1.png" title="[啟用web_deploy發行]">  
+<img src="/2019/08/26/MVCWebDeployToIIS/step6Deploysetting_2.png" title="[指定帳號sql設定]">   
+
 <p>至此 IIS Server端的Web Deploy安裝及設定，告一段落了，接下來回到 Visual Studio 開發端的部署設定</p>
-<h4 id="Visual-Studio-開發端-設定"><a href="#Visual-Studio-開發端-設定" class="headerlink" title="* Visual Studio 開發端 設定"></a>* Visual Studio 開發端 設定</h4>
+<h4 id="Visual-Studio-開發端-設定"><a href="#Visual-Studio-開發端-設定" class="headerlink" title="* Visual Studio 開發端 設定"></a>* Visual Studio 開發端 設定</h4><p>setp1. 開啟Visual Studio專案後，點選<code>建置(B)</code>功能列，展開後，<br>點選<code>發行 xxxxxxx</code>(xxxxxx為專案名)</p>
+<img src="/2019/08/26/MVCWebDeployToIIS/step21deploysetting.png" title="[發行專案]">   
+
+<p>step2. 點選<code>IIS、FTP 等</code>，並點擊<code>建立設定檔</code>按扭</p>
+<img src="/2019/08/26/MVCWebDeployToIIS/step22deploysetting.png" title="[設定類別]">   
+
+<p>step3. 填寫部署的資訊後，點擊<code>驗證連線</code>，確認是否可以正常連線成功，正常即可按下<code>儲存</code>按扭</p>
+<img src="/2019/08/26/MVCWebDeployToIIS/step23deploysetting.png" title="[建立部署連線訊息]">  
+
+<p>設定完成後，後續即可依這個設定檔進行一鍵部署的動作了，<br>以上是這次設定部署的記錄。</p>
+
       
     </div>
     
@@ -340,6 +445,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MVC/" rel="tag"><i class="fa fa-tag"></i> MVC</a>
+          
+            <a href="/tags/Web-Deploy/" rel="tag"><i class="fa fa-tag"></i> Web Deploy</a>
+          
+            <a href="/tags/IIS/" rel="tag"><i class="fa fa-tag"></i> IIS</a>
+          
+        </div>
       
 
       
@@ -442,7 +557,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -492,7 +625,8 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -516,6 +650,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>訪問人數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>總訪問量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 
@@ -664,6 +818,323 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 
