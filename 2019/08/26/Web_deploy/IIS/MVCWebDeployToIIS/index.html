@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Markdown,">
+  <meta name="keywords" content="MVC,Web Deploy,IIS,">
 
 
 
@@ -79,18 +79,29 @@
 
 
 
-<meta name="description" content="前言記錄一些常用的語法，不定期更新，供日後查詢。">
-<meta name="keywords" content="Markdown">
+<meta name="description" content="ASP.NET MVC 5 WebDeploy 設定記錄　　前言最近開始利用 .NET MVC 5開發專案(遲遲到現在才開始進入MVC的世界)，進度也到了部署的階段，經由GOOGLE大神牽引，看到了Web Deploy，在Visual Studio上很方便的部署機制，眼睛為之一亮，就是這個了，原來這個部署方式已經歷行很久了，我這井底之蛙，以前的部署還一直在單純的使用copy &amp;amp; paste">
+<meta name="keywords" content="MVC,Web Deploy,IIS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MarkDown 語法學習">
-<meta property="og:url" content="https://daneliau.github.io/2019/08/26/MarkDownLearning/Markdown-learning/index.html">
+<meta property="og:title" content="ASP.NET MVC 5 WebDeploy 設定記錄">
+<meta property="og:url" content="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/index.html">
 <meta property="og:site_name" content="廖爸&#39;s Blog">
-<meta property="og:description" content="前言記錄一些常用的語法，不定期更新，供日後查詢。">
+<meta property="og:description" content="ASP.NET MVC 5 WebDeploy 設定記錄　　前言最近開始利用 .NET MVC 5開發專案(遲遲到現在才開始進入MVC的世界)，進度也到了部署的階段，經由GOOGLE大神牽引，看到了Web Deploy，在Visual Studio上很方便的部署機制，眼睛為之一亮，就是這個了，原來這個部署方式已經歷行很久了，我這井底之蛙，以前的部署還一直在單純的使用copy &amp;amp; paste">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-11-14T02:30:40.562Z">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step12serveraccount.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step3IISServerWebPlatformInstaller.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step4InstallApplications.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step5IISmanagerPrivellege_1.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step5IISmanagerPrivellege_2.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step6Deploysetting_1.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step6Deploysetting_2.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step21deploysetting.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step22deploysetting.png">
+<meta property="og:image" content="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step23deploysetting.png">
+<meta property="og:updated_time" content="2019-11-14T02:35:20.515Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MarkDown 語法學習">
-<meta name="twitter:description" content="前言記錄一些常用的語法，不定期更新，供日後查詢。">
+<meta name="twitter:title" content="ASP.NET MVC 5 WebDeploy 設定記錄">
+<meta name="twitter:description" content="ASP.NET MVC 5 WebDeploy 設定記錄　　前言最近開始利用 .NET MVC 5開發專案(遲遲到現在才開始進入MVC的世界)，進度也到了部署的階段，經由GOOGLE大神牽引，看到了Web Deploy，在Visual Studio上很方便的部署機制，眼睛為之一亮，就是這個了，原來這個部署方式已經歷行很久了，我這井底之蛙，以前的部署還一直在單純的使用copy &amp;amp; paste">
+<meta name="twitter:image" content="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step12serveraccount.png">
 
 
 
@@ -120,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://daneliau.github.io/2019/08/26/MarkDownLearning/Markdown-learning/">
+  <link rel="canonical" href="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/">
 
 
 
 
 
-  <title>MarkDown 語法學習 | 廖爸's Blog</title>
+  <title>ASP.NET MVC 5 WebDeploy 設定記錄 | 廖爸's Blog</title>
   
 
 
@@ -285,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://daneliau.github.io/2019/08/26/MarkDownLearning/Markdown-learning/">
+    <link itemprop="mainEntityOfPage" href="https://daneliau.github.io/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Daniel">
@@ -302,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MarkDown 語法學習</h1>
+          <h1 class="post-title" itemprop="name headline">ASP.NET MVC 5 WebDeploy 設定記錄</h1>
         
 
         <div class="post-meta">
@@ -314,7 +325,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-26T10:06:01+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-26T12:27:45+08:00">
                 2019-08-26
               </time>
             
@@ -337,8 +348,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Markdown/" itemprop="url" rel="index">
-                    <span itemprop="name">Markdown</span>
+                  <a href="/categories/主機服務建置及設定/" itemprop="url" rel="index">
+                    <span itemprop="name">主機服務建置及設定</span>
                   </a>
                 </span>
 
@@ -379,49 +390,50 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>記錄一些常用的語法，不定期更新，供日後查詢。 </p>
+        <h2 id="ASP-NET-MVC-5-WebDeploy-設定記錄"><a href="#ASP-NET-MVC-5-WebDeploy-設定記錄" class="headerlink" title="ASP.NET MVC 5 WebDeploy 設定記錄　　"></a>ASP.NET MVC 5 WebDeploy 設定記錄　　</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近開始利用 .NET MVC 5開發專案(<del>遲遲到現在才開始進入MVC的世界</del>)，<br>進度也到了部署的階段，經由GOOGLE大神牽引，看到了Web Deploy，在Visual Studio上<br>很方便的部署機制，眼睛為之一亮，就是這個了，原來這個部署方式已經歷行很久了，<br>我這井底之蛙，以前的部署還一直在單純的使用copy &amp; paste(汗顏啊)，<br>也藉這個主題來練習markdown，把設定的過程記錄起來，供日後參考</p>
 <a id="more"></a>  
-
-<h2 id="閱讀全文"><a href="#閱讀全文" class="headerlink" title="閱讀全文"></a>閱讀全文</h2><p>首頁在呈現文章時，能決定顯示那些文字段後插入<code>&lt;!-- more --&gt;</code>，在首頁post的文章會出現<code>閱讀全文</code>按鈕，而不呈現整篇文章 ，此部份效果僅在<code>首頁</code>才會呈現</p>
-<h3 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 前言 </span><br><span class="line">記錄一些常用的語法，不定期更新，供日後查詢。 </span><br><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="標題"><a href="#標題" class="headerlink" title="標題"></a>標題</h2><p>Atx型式，在行首插入1到6個#，各對應到標題1至6階，此處不呈現效果，效果同html h1~h6一樣  </p>
-<h3 id="語法-1"><a href="#語法-1" class="headerlink" title="語法"></a>語法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># h1  </span><br><span class="line">## h2  </span><br><span class="line">### h3</span><br><span class="line">#### h4</span><br><span class="line">##### h5</span><br><span class="line">###### h6</span><br></pre></td></tr></table></figure>
-
-<h2 id="插入網址連結連結"><a href="#插入網址連結連結" class="headerlink" title="插入網址連結連結"></a>插入網址連結連結</h2><p>連結文字以[方括號]標記起始，方括號內填入顯示字樣，並在方括號後<br>接著括號，於括號內填入欲連結的網址，如果還要加上連結的title文字<br>，僅需要在網址後面新增一個空格再利用雙引號將title文字包起來即可</p>
-<h3 id="語法-2"><a href="#語法-2" class="headerlink" title="語法"></a>語法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Markdown文件](https://markdown.tw &quot;教學說明&quot;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><a href="https://markdown.tw" title="教學說明" target="_blank" rel="noopener">Markdown文件</a>  </p>
-<h2 id="行分隔線"><a href="#行分隔線" class="headerlink" title="行分隔線"></a>行分隔線</h2><p>可以在一行中以三個或以上的 <code>星號*</code> <code>底線_</code> <code>減號-</code>來建立分隔線<br>且行內不可有其它字樣或符號出現</p>
-<h3 id="語法-3"><a href="#語法-3" class="headerlink" title="語法"></a>語法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">***</span><br><span class="line">_________</span><br><span class="line">-----------------------</span><br></pre></td></tr></table></figure>
-
-<h3 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h3><hr>
-<hr>
-<hr>
-<h2 id="插入圖片"><a href="#插入圖片" class="headerlink" title="插入圖片"></a>插入圖片</h2><p>Markdown使用一種和連結很相似的語法來標記圖片，目前不支援指定img圖片的寬高，如果需要指定的話，可以直接使用html &lt;img&gt;標籤。</p>
-<h3 id="語法-4"><a href="#語法-4" class="headerlink" title="語法"></a>語法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![顯示字樣](/image_path/img.jpg)</span><br><span class="line">![顯示字樣](/image_path/img.jpg &quot;title&quot;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="清單"><a href="#清單" class="headerlink" title="清單"></a>清單</h2><p>支援有序清單及無序清單兩種類型。</p>
-<h3 id="無序清單"><a href="#無序清單" class="headerlink" title="無序清單"></a>無序清單</h3><p>使用星號、加號或是減號做為清單標記</p>
-<h4 id="語法-5"><a href="#語法-5" class="headerlink" title="語法"></a>語法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 清單一</span><br><span class="line">+ 清單二</span><br><span class="line">- 清單三</span><br></pre></td></tr></table></figure>
-
-<h4 id="效果-2"><a href="#效果-2" class="headerlink" title="效果"></a>效果</h4><ul>
-<li>清單一</li>
-</ul>
+<h3 id="部署設定"><a href="#部署設定" class="headerlink" title="部署設定"></a>部署設定</h3><p>需要動到的地方，分成了兩個部份</p>
 <ul>
-<li>清單二</li>
+<li>部署IIS Server端</li>
+<li>Visual Studio 開發端  </li>
 </ul>
-<ul>
-<li>清單三</li>
-</ul>
-<h3 id="有序清單"><a href="#有序清單" class="headerlink" title="有序清單"></a>有序清單</h3><p>則使用數字接著一個英文句點：</p>
-<h4 id="語法-6"><a href="#語法-6" class="headerlink" title="語法"></a>語法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 清單一</span><br><span class="line">2. 清單二</span><br><span class="line">3. 清單三</span><br></pre></td></tr></table></figure>
+<h4 id="IIS-Server-設定"><a href="#IIS-Server-設定" class="headerlink" title="* IIS Server 設定"></a>* IIS Server 設定</h4><p>Step1. 安裝 <a href="https://www.microsoft.com/web/downloads/platform.aspx" target="_blank" rel="noopener">WebPlatformInstaller</a> (選擇os 對應的位元版本 x64 or 32位元)  </p>
+<p>Step2. 新增Server端本機部署用的帳號(避免直接使用),並將該user加入 <code>Administators</code> 群組  </p>
+<img src="/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step12serveraccount.png" title="[本機部署用的帳號]">  
 
-<h4 id="效果-3"><a href="#效果-3" class="headerlink" title="效果"></a>效果</h4><ol>
-<li>清單一</li>
-<li>清單二</li>
-<li>清單三</li>
-</ol>
+<p>Step3. 開啟<code>IIS管理員</code>(建立站台)，在這裡僅以<code>Default Web Site</code>站台為例，滑鼠右鍵，<br>點擊<code>從組件庫安裝應用程式</code>   </p>
+<img src="/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step3IISServerWebPlatformInstaller.png" title="[WebPlatformInstaller]">  
+
+<p>Step4. 點選<code>產品</code>tag，並於右方搜尋欄內查詢<code>web deploy</code>，安裝三項應用程式，安裝完後，<br><code>關閉</code>IIS管理員程式，並<code>重新開啟</code>IIS管理員  </p>
+<ul>
+<li><code>Web Deploy 3.6</code></li>
+<li><code>Web Deploy 3.6 without bundled SQL support(latest)</code></li>
+<li><code>Web Deploy 3.6 for Hosting Servers</code>  <img src="/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step4InstallApplications.png" title="[Install_Application]">  
+
+</li>
+</ul>
+<p>Step5. 點選左側<code>Default Web Site站台</code>後，右方會出現<code>IIS管理員權限</code>圖示，點擊後，將剛剛建立部署用的system user加入到清單內  </p>
+<img src="/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step5IISmanagerPrivellege_1.png" title="[點選iis管理員權限]">  
+<img src="/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step5IISmanagerPrivellege_2.png" title="[新增system_user]">      
+
+<p>Step6. 點選左側<code>Default Web Site站台</code>，滑鼠右鍵，會看見清單多了<code>部署</code>項目，展開後<br>點選<code>啟用Web Deploy發行</code>，並指定好部署用的帳號及sql連結資訊後，按下<code>設定</code>鍵，  </p>
+<img src="/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step6Deploysetting_1.png" title="[啟用web_deploy發行]">  
+<img src="/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step6Deploysetting_2.png" title="[指定帳號sql設定]">   
+
+<p>至此 IIS Server端的Web Deploy安裝及設定，告一段落了，接下來回到 Visual Studio 開發端的部署設定</p>
+<h4 id="Visual-Studio-開發端-設定"><a href="#Visual-Studio-開發端-設定" class="headerlink" title="* Visual Studio 開發端 設定"></a>* Visual Studio 開發端 設定</h4><p>setp1. 開啟Visual Studio專案後，點選<code>建置(B)</code>功能列，展開後，<br>點選<code>發行 xxxxxxx</code>(xxxxxx為專案名)</p>
+<img src="/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step21deploysetting.png" title="[發行專案]">   
+
+<p>step2. 點選<code>IIS、FTP 等</code>，並點擊<code>建立設定檔</code>按扭</p>
+<img src="/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step22deploysetting.png" title="[設定類別]">   
+
+<p>step3. 填寫部署的資訊後，點擊<code>驗證連線</code>，確認是否可以正常連線成功，正常即可按下<code>儲存</code>按扭</p>
+<img src="/2019/08/26/Web_deploy/IIS/MVCWebDeployToIIS/step23deploysetting.png" title="[建立部署連線訊息]">  
+
+<p>設定完成後，後續即可依這個設定檔進行一鍵部署的動作了，<br>以上是這次設定部署的記錄。</p>
+<h3 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h3><ul>
+<li>IIS Server 安裝了 Web Deploy套件，但 IIS管理員站台 一直沒有出現<code>部署</code>選項  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">將自行下載安裝或webplatform installer或server 服務安裝的  </span><br><span class="line">web deploy套件移除後，再重新透過webplatform installer重新  </span><br><span class="line">安裝三個web deploy套件，再重新啟動IIS管理員，應該就會出現了</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -439,7 +451,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Markdown/" rel="tag"><i class="fa fa-tag"></i> Markdown</a>
+            <a href="/tags/MVC/" rel="tag"><i class="fa fa-tag"></i> MVC</a>
+          
+            <a href="/tags/Web-Deploy/" rel="tag"><i class="fa fa-tag"></i> Web Deploy</a>
+          
+            <a href="/tags/IIS/" rel="tag"><i class="fa fa-tag"></i> IIS</a>
           
         </div>
       
@@ -452,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/21/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/08/26/MarkDown/Markdown-learning/" rel="next" title="MarkDown 語法學習">
+                <i class="fa fa-chevron-left"></i> MarkDown 語法學習
               </a>
             
           </div>
@@ -461,10 +477,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/26/CsharpLearning/MVCWebDeployToIIS/" rel="prev" title="ASP.NET MVC 5 WebDeploy 設定記錄">
-                ASP.NET MVC 5 WebDeploy 設定記錄 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -596,7 +608,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#閱讀全文"><span class="nav-number">1.1.</span> <span class="nav-text">閱讀全文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#語法"><span class="nav-number">1.1.1.</span> <span class="nav-text">語法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#標題"><span class="nav-number">1.2.</span> <span class="nav-text">標題</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#語法-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">語法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入網址連結連結"><span class="nav-number">1.3.</span> <span class="nav-text">插入網址連結連結</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#語法-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">語法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果"><span class="nav-number">1.3.2.</span> <span class="nav-text">效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行分隔線"><span class="nav-number">1.4.</span> <span class="nav-text">行分隔線</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#語法-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">語法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入圖片"><span class="nav-number">1.5.</span> <span class="nav-text">插入圖片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#語法-4"><span class="nav-number">1.5.1.</span> <span class="nav-text">語法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清單"><span class="nav-number">1.6.</span> <span class="nav-text">清單</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#無序清單"><span class="nav-number">1.6.1.</span> <span class="nav-text">無序清單</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#語法-5"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">語法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效果-2"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">效果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有序清單"><span class="nav-number">1.6.2.</span> <span class="nav-text">有序清單</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#語法-6"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">語法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效果-3"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">效果</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ASP-NET-MVC-5-WebDeploy-設定記錄"><span class="nav-number">1.</span> <span class="nav-text">ASP.NET MVC 5 WebDeploy 設定記錄　　</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署設定"><span class="nav-number">1.2.</span> <span class="nav-text">部署設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IIS-Server-設定"><span class="nav-number">1.2.1.</span> <span class="nav-text">* IIS Server 設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Visual-Studio-開發端-設定"><span class="nav-number">1.2.2.</span> <span class="nav-text">* Visual Studio 開發端 設定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Troubleshooting"><span class="nav-number">1.3.</span> <span class="nav-text">Troubleshooting</span></a></li></ol></li></ol></div>
             
 
           </div>
